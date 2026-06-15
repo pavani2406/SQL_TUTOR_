@@ -21,7 +21,7 @@ SQL EDITOR:
 # RUN QUERY:
 <img width="731" height="485" alt="image" src="https://github.com/user-attachments/assets/0114a41c-c7d1-4677-9c3b-ec50bbcf35a8" />
 
-#CHECK ANSWER:
+# CHECK ANSWER:
 
 <img width="511" height="221" alt="image" src="https://github.com/user-attachments/assets/6beb6d47-34c4-4e6c-bf42-963675cdb4e4" />
 
