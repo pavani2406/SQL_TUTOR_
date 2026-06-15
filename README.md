@@ -8,8 +8,6 @@ feedback** — a hint and an explanation that guide you without handing over the
 
 ---
 
-
----
 ## 📦 Project Structure
 
 ```
