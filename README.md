@@ -1,7 +1,5 @@
 # 🎓 SQL Tutor Agent
-**SQL-10 | AI Implementation Protocol — Student Project**
 
-Demo video link : https://drive.google.com/file/d/1hd26a5eI6JlM4oi4XOvU8X2TV7tXD-Of/view?usp=drive_link
 
 An interactive web app that poses SQL challenges, runs your answer against an isolated
 in-memory database, compares it to the expected output, and gives **targeted, answer-safe
@@ -9,13 +7,6 @@ feedback** — a hint and an explanation that guide you without handing over the
 
 
 ---
-## 👥 Team Members
-
-| S.No | Name | Role | Email |
-|------|------|------|--------|
-| 1 | Y. Gnana Pavani | Project Lead, Full-Stack Developer & UI/UX Designer | yg.pavani2004@gmail.com |
-| 2 | D. Sri Lakshmi | Backend Developer & Database Administrator | sreelaxmi7017@gmail.com |
-| 3 | Shaik Aisha Afreen | AI Engineer, QA Tester & Documentation Specialist | shaikaishaafreen@gmail.com |
 
 
 ---
