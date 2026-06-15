@@ -2,8 +2,9 @@
 
 <img width="1330" height="713" alt="image" src="https://github.com/user-attachments/assets/ce2b52f0-669e-4203-b825-85d36dc63d34" />
 
-SQL EDITOR:
-<img width="1330" height="713" alt="image" src="https://github.com/user-attachments/assets/43fbe7c1-f268-4c83-a257-61d1efc5f056" />
+# SQL EDITOR:
+<img width="943" height="241" alt="WhatsApp Image 2026-06-15 at 2 21 58 PM" src="https://github.com/user-attachments/assets/c8270a88-b184-4aeb-8f25-9e34978c8506" />
+
 
 
 # SIDE BAR(nav bar)
