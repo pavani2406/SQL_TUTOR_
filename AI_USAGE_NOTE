@@ -1,59 +1,63 @@
-# 🤖 AI Usage Note
+#🤖 AI Usage Note
 
-## Purpose of AI Integration
+Purpose of AI Integration
 
-SQL-TUTOR leverages Artificial Intelligence (AI) to create an interactive and personalized SQL learning experience. Rather than simply providing answers, the AI acts as a virtual tutor that guides learners through problem-solving and helps them develop strong SQL skills.
+SQL-TUTOR leverages Artificial Intelligence (AI) to create an interactive and personalized SQL learning experience. Rather than simply providing answers, the AI acts as a virtual tutor that guides learners through problem-solving, helping them understand concepts and develop strong SQL skills.
 
 ---
 
 ## AI Technologies Used
 
-- Large Language Models (LLMs)
-- OpenAI API / Gemini API
-- Natural Language Processing (NLP)
+* **Large Language Models (LLMs)**
+* **OpenAI API / Gemini API**
+* **Natural Language Processing (NLP)**
 
 ---
 
 ## AI-Powered Features
 
-### Intelligent Hint Generation
-When a learner submits an incorrect SQL query, the AI analyzes the response and provides contextual hints without revealing the complete solution.
+💡 Intelligent Hint Generation
 
-### Personalized Feedback
-The AI evaluates submitted queries and explains mistakes in simple, beginner-friendly language.
+When a learner submits an incorrect SQL query, the AI analyzes the response and provides contextual hints that guide the user toward the correct solution without revealing the answer.
 
-### Adaptive Learning Support
-Based on user performance, the AI gradually increases the level of guidance provided.
+📝 Personalized Feedback
 
-### Dynamic Challenge Generation
-The AI generates similar SQL challenges to reinforce concepts currently being practiced.
+The AI evaluates submitted queries and explains mistakes in clear, beginner-friendly language, helping users understand both syntax and logic errors.
+
+🎯 Adaptive Learning Support
+
+Based on the user's performance and number of attempts, the AI gradually increases the level of guidance, ensuring a balanced learning experience.
+
+ 🔄 Dynamic Challenge Generation
+
+The AI can generate new SQL practice questions based on the concepts a learner is currently studying, allowing continuous reinforcement of key topics.
 
 ---
 
 ## Educational Benefits
 
-- Encourages active learning and critical thinking
-- Promotes conceptual understanding over memorization
-- Provides instant personalized feedback
-- Helps learners identify and correct mistakes
-- Enhances engagement through interactive tutoring
+* Encourages active learning and critical thinking.
+* Promotes conceptual understanding over memorization.
+* Provides instant and personalized feedback.
+* Helps learners identify and correct mistakes efficiently.
+* Enhances engagement through interactive tutoring.
 
 ---
 
 ## Limitations
 
-- AI-generated feedback may occasionally require verification
-- Hint quality depends on the underlying language model
-- AI support is intended for educational purposes only
+* AI-generated feedback may occasionally require verification.
+* Hint quality depends on the capabilities of the underlying language model.
+* AI support is intended for educational assistance and should not replace formal database training.
 
 ---
 
 ## Responsible AI Usage
 
-SQL-TUTOR follows a guided-learning approach where AI supports learners without directly solving challenges for them. The platform encourages independent thinking, practice, and exploration while maintaining academic integrity.
+SQL-TUTOR follows a guided-learning approach where AI supports learners without directly solving challenges for them. The platform encourages independent thinking, practice, and exploration while maintaining academic integrity and ethical AI usage.
 
 ---
 
 ## Conclusion
 
-SQL-TUTOR transforms traditional SQL practice into an engaging learning experience by combining AI-driven tutoring, adaptive hinting, personalized feedback, and dynamic challenge generation.
+By combining AI-driven tutoring, adaptive hinting, personalized feedback, and dynamic challenge generation, SQL-TUTOR transforms traditional SQL practice into an engaging and effective learning experience. The platform empowers learners to build practical SQL skills while developing a deeper understanding of database concepts.
