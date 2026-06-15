@@ -1,4 +1,4 @@
-UI INTERFACE:
+# UI INTERFACE:
 
 <img width="1330" height="713" alt="image" src="https://github.com/user-attachments/assets/ce2b52f0-669e-4203-b825-85d36dc63d34" />
 
@@ -14,7 +14,7 @@ SQL EDITOR:
 # HINTS :
 <img width="973" height="314" alt="image" src="https://github.com/user-attachments/assets/2fc2eef8-4869-4878-a122-979865ed7677" />
 
-#ERROR COMEOVER:
+# ERROR COMEOVER:
 
 <img width="901" height="313" alt="image" src="https://github.com/user-attachments/assets/8e9f5045-3f7a-46d0-857d-7196f1e708b2" />
 
