@@ -1,24 +1,14 @@
 # 🎓 SQL Tutor Agent
 **SQL-10 | AI Implementation Protocol — Student Project**
 
-DEMO : https://drive.google.com/file/d/1hd26a5eI6JlM4oi4XOvU8X2TV7tXD-Of/view?usp=drive_link
-
 An interactive web app that poses SQL challenges, runs your answer against an isolated
 in-memory database, compares it to the expected output, and gives **targeted, answer-safe
 feedback** — a hint and an explanation that guide you without handing over the solution.
 
+Runs **100% free and locally** using Ollama (no API key, no cloud cost).
 
 ---
-## 👥 Team Members
 
-| S.No | Name | Role | Email |
-|------|------|------|--------|
-| 1 | Y. Gnana Pavani | Project Lead, Full-Stack Developer & UI/UX Designer | yg.pavani2004@gmail.com |
-| 2 | D. Sri Lakshmi | Backend Developer & Database Administrator | sreelaxmi7017@gmail.com |
-| 3 | Shaik Aisha Afreen | AI Engineer, QA Tester & Documentation Specialist | shaikaishaafreen@gmail.com |
-
-
----
 ## 📦 Project Structure
 
 ```
@@ -37,20 +27,25 @@ sqltutor/
 
 ## 🚀 Setup
 
+### 1. Install Ollama (one time)
+Download from [ollama.com](https://ollama.com), install, then pull the model:
+```bash
+ollama pull qwen2.5-coder:7b
+```
+(Lower-spec machine? Use `qwen2.5-coder:3b` and change `MODEL_NAME` in `utils/tutor.py`.)
 
-### 1. Install Python deps
+### 2. Install Python deps
 ```bash
 pip install -r requirements.txt
-pip install streamlit
-pip install pandas
-pip install google-generativeai
 ```
 
-### 2. Run
+### 3. Run
 ```bash
 streamlit run app.py
 ```
+Make sure Ollama is running (tray icon present) before clicking *Check Answer* or *Get Hint*.
 
+---
 
 ## 🧩 The Challenge Bank
 
@@ -70,59 +65,6 @@ streamlit run app.py
 6 Advanced (ROW_NUMBER, RANK, CTE, running totals, self-join, LAG).
 
 ---
-
-## Tools & Technologies 
-
-We used the following tools:
-
-Python 3.10+
-
-Streamlit (for web UI)
-
-SQLite (database engine)
-
-Pandas (data handling)
-
-JSON (challenge storage)
-
-OpenAI / Gemini API (for AI feedback system)
-
-
-## Libraries Used
-
-Our project uses the following Python libraries:
-
-📌 Core Libraries:
-
-import json
-→ Used to load SQL challenges from JSON file
-
-import time
-→ Used for tracking solving time and streaks
-
-from pathlib import Path
-→ Used to handle file paths for project structure
-
-import urllib.request
-→ Used for fetching external resources if needed
-
-import urllib.error
-→ Handles errors while fetching data
-
-from datetime import date
-→ Used for tracking daily streaks
-
-import sqlite3
-→ Core database engine for executing SQL queries
-
-import re
-→ Used for pattern matching and SQL validation
-
-import pandas as pd
-→ Used for displaying query results in table format
-
-
-
 
 ## ⚙️ How It Works
 
@@ -162,7 +104,6 @@ auto-validates that its reference answer actually runs before showing it.
 
 ---
 
-
 ## 🏅 Progress & Gamification
 
 - **Progress bar:** `X / 20 solved`
@@ -175,47 +116,6 @@ Progress lives in Streamlit session state (resets when the app restarts).
 
 ---
 
-## 🧠 AI Capability Demonstrated
-
-### Intelligent SQL Tutoring
-- Evaluates student SQL queries.
-- Detects syntax and logical errors.
-- Compares outputs with expected results.
-- Provides contextual hints without revealing answers.
-
-### Personalized Feedback
-- Identifies common SQL mistakes.
-- Explains errors in simple language.
-- Suggests improvements step-by-step.
-
-### Automated Assessment
-- Executes user queries on a sample database.
-- Validates correctness automatically.
-- Generates targeted learning recommendations.
-
-### Adaptive Learning Support
-- Encourages independent problem-solving.
-- Helps students understand SQL concepts through guided hints.
-- Creates an interactive learning experience.
-
----
-
-
-
-## ⚙️ Assumptions
-Users possess basic SQL knowledge.
-Sample databases are preconfigured.
-Expected outputs exist for every challenge.
-Internet connectivity is available for AI feedback.
-Submitted queries are intended for learning purposes.
-
-## ⚠️ Limitations
-Feedback quality depends on the AI model.
-Extremely complex queries may receive generic hints.
-Supports predefined SQL practice datasets only.
-Requires API access for AI-generated feedback.
-Not intended for production database environments.
-
 ## 🔒 Safety
 
 Every student query runs in a throwaway **in-memory** database — never against real data.
@@ -224,6 +124,10 @@ A guard rejects anything that isn't a `SELECT`/`WITH` and blocks
 
 ---
 
-## Conclusio
-The SQL Tutor project is designed to help beginners strengthen their understanding of SQL through hands-on practice. By providing interactive challenges, real-time query evaluation, and instant feedback
-
+## 🧪 Quick Tests
+```bash
+# All 20 reference answers self-validate as correct
+python -c "import json; from utils.engine import evaluate; \
+chs=json.load(open('data/challenges.json'))['challenges']; \
+print('PASS' if all(evaluate(c,c['correct_answer'])['correct'] for c in chs) else 'FAIL')"
+```
