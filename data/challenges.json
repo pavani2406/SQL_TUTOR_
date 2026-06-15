@@ -1,0 +1,477 @@
+{
+  "challenges": [
+    {
+      "id": 1,
+      "level": "Beginner",
+      "topic": "SELECT / WHERE",
+      "title": "All Active Customers",
+      "description": "Return the first_name and last_name of every customer whose status is 'active'. Order by last_name ascending.",
+      "schema": "CREATE TABLE customers (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, status TEXT, city TEXT);",
+      "sample_data": {
+        "customers": [
+          [1, "Alice", "Smith", "active", "Denver"],
+          [2, "Bob", "Jones", "inactive", "Austin"],
+          [3, "Carol", "Brown", "active", "Denver"],
+          [4, "Dan", "Adams", "active", "Seattle"],
+          [5, "Eve", "White", "inactive", "Austin"]
+        ]
+      },
+      "correct_answer": "SELECT first_name, last_name FROM customers WHERE status = 'active' ORDER BY last_name ASC;",
+      "hints": [
+        "Use a WHERE clause to filter rows by the status column.",
+        "Remember that text values must be wrapped in single quotes: status = 'active'.",
+        "Add ORDER BY last_name ASC at the end to sort the results."
+      ]
+    },
+    {
+      "id": 2,
+      "level": "Beginner",
+      "topic": "COUNT / aggregate",
+      "title": "Count Customers by City",
+      "description": "Return each city and the number of customers in it, as columns (city, customer_count). Order by customer_count descending.",
+      "schema": "CREATE TABLE customers (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, status TEXT, city TEXT);",
+      "sample_data": {
+        "customers": [
+          [1, "Alice", "Smith", "active", "Denver"],
+          [2, "Bob", "Jones", "inactive", "Austin"],
+          [3, "Carol", "Brown", "active", "Denver"],
+          [4, "Dan", "Adams", "active", "Seattle"],
+          [5, "Eve", "White", "inactive", "Austin"],
+          [6, "Frank", "Hall", "active", "Denver"]
+        ]
+      },
+      "correct_answer": "SELECT city, COUNT(*) AS customer_count FROM customers GROUP BY city ORDER BY customer_count DESC;",
+      "hints": [
+        "You need GROUP BY to collapse rows that share the same city.",
+        "COUNT(*) counts the rows in each group.",
+        "Alias the count with AS customer_count so the column name matches."
+      ]
+    },
+    {
+      "id": 3,
+      "level": "Beginner",
+      "topic": "DISTINCT",
+      "title": "Unique Cities",
+      "description": "Return a single column 'city' listing each distinct city exactly once. Order alphabetically.",
+      "schema": "CREATE TABLE customers (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, status TEXT, city TEXT);",
+      "sample_data": {
+        "customers": [
+          [1, "Alice", "Smith", "active", "Denver"],
+          [2, "Bob", "Jones", "inactive", "Austin"],
+          [3, "Carol", "Brown", "active", "Denver"],
+          [4, "Dan", "Adams", "active", "Seattle"],
+          [5, "Eve", "White", "inactive", "Austin"]
+        ]
+      },
+      "correct_answer": "SELECT DISTINCT city FROM customers ORDER BY city ASC;",
+      "hints": [
+        "DISTINCT removes duplicate rows from the result.",
+        "Select only the city column so duplicates can be collapsed.",
+        "Add ORDER BY city to sort alphabetically."
+      ]
+    },
+    {
+      "id": 4,
+      "level": "Beginner",
+      "topic": "Aggregates / SUM",
+      "title": "Total Revenue",
+      "description": "Return a single value in a column named total_revenue representing the sum of all order amounts.",
+      "schema": "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL, order_date TEXT);",
+      "sample_data": {
+        "orders": [
+          [1, 1, 100.0, "2024-01-05"],
+          [2, 1, 50.5, "2024-01-08"],
+          [3, 2, 200.0, "2024-02-01"],
+          [4, 3, 75.25, "2024-02-15"]
+        ]
+      },
+      "correct_answer": "SELECT SUM(amount) AS total_revenue FROM orders;",
+      "hints": [
+        "SUM() adds up all values in a numeric column.",
+        "You don't need GROUP BY when summing the whole table.",
+        "Alias the result AS total_revenue."
+      ]
+    },
+    {
+      "id": 5,
+      "level": "Beginner",
+      "topic": "WHERE / comparison",
+      "title": "High-Value Orders",
+      "description": "Return the id and amount of all orders with an amount greater than 100. Order by amount descending.",
+      "schema": "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL, order_date TEXT);",
+      "sample_data": {
+        "orders": [
+          [1, 1, 100.0, "2024-01-05"],
+          [2, 1, 150.5, "2024-01-08"],
+          [3, 2, 200.0, "2024-02-01"],
+          [4, 3, 75.25, "2024-02-15"],
+          [5, 2, 99.99, "2024-03-01"]
+        ]
+      },
+      "correct_answer": "SELECT id, amount FROM orders WHERE amount > 100 ORDER BY amount DESC;",
+      "hints": [
+        "Use WHERE amount > 100 to keep only large orders.",
+        "Greater-than is the > operator (strictly greater, so 100 is excluded).",
+        "ORDER BY amount DESC sorts highest first."
+      ]
+    },
+    {
+      "id": 6,
+      "level": "Beginner",
+      "topic": "LIKE / pattern",
+      "title": "Names Starting With A",
+      "description": "Return first_name and last_name of customers whose first_name starts with the letter 'A'.",
+      "schema": "CREATE TABLE customers (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, status TEXT, city TEXT);",
+      "sample_data": {
+        "customers": [
+          [1, "Alice", "Smith", "active", "Denver"],
+          [2, "Bob", "Jones", "inactive", "Austin"],
+          [3, "Aaron", "Brown", "active", "Denver"],
+          [4, "Dan", "Adams", "active", "Seattle"]
+        ]
+      },
+      "correct_answer": "SELECT first_name, last_name FROM customers WHERE first_name LIKE 'A%';",
+      "hints": [
+        "LIKE lets you match text patterns.",
+        "The % wildcard matches any sequence of characters.",
+        "'A%' means 'starts with A, followed by anything'."
+      ]
+    },
+    {
+      "id": 7,
+      "level": "Beginner",
+      "topic": "LIMIT",
+      "title": "Three Most Recent Orders",
+      "description": "Return the id and order_date of the 3 most recent orders (latest order_date first).",
+      "schema": "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL, order_date TEXT);",
+      "sample_data": {
+        "orders": [
+          [1, 1, 100.0, "2024-01-05"],
+          [2, 1, 150.5, "2024-03-08"],
+          [3, 2, 200.0, "2024-02-01"],
+          [4, 3, 75.25, "2024-04-15"],
+          [5, 2, 99.99, "2024-03-20"]
+        ]
+      },
+      "correct_answer": "SELECT id, order_date FROM orders ORDER BY order_date DESC LIMIT 3;",
+      "hints": [
+        "Sort by order_date descending to put the newest first.",
+        "LIMIT 3 keeps only the top 3 rows after sorting.",
+        "Order matters: ORDER BY comes before LIMIT."
+      ]
+    },
+    {
+      "id": 8,
+      "level": "Intermediate",
+      "topic": "INNER JOIN",
+      "title": "Orders With Customer Names",
+      "description": "Return each order's id, the customer's first_name, and the order amount, joining orders to customers. Order by order id.",
+      "schema": "CREATE TABLE customers (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT);\nCREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL);",
+      "sample_data": {
+        "customers": [
+          [1, "Alice", "Smith"],
+          [2, "Bob", "Jones"],
+          [3, "Carol", "Brown"]
+        ],
+        "orders": [
+          [1, 1, 100.0],
+          [2, 1, 50.0],
+          [3, 2, 200.0],
+          [4, 3, 75.0]
+        ]
+      },
+      "correct_answer": "SELECT o.id, c.first_name, o.amount FROM orders o JOIN customers c ON o.customer_id = c.id ORDER BY o.id;",
+      "hints": [
+        "Use JOIN to combine rows from orders and customers.",
+        "The join condition links orders.customer_id to customers.id.",
+        "Use table aliases (o, c) to keep column references clear."
+      ]
+    },
+    {
+      "id": 9,
+      "level": "Intermediate",
+      "topic": "LEFT JOIN / NULL",
+      "title": "Customers With No Orders",
+      "description": "Return the first_name and last_name of customers who have never placed an order.",
+      "schema": "CREATE TABLE customers (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT);\nCREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL);",
+      "sample_data": {
+        "customers": [
+          [1, "Alice", "Smith"],
+          [2, "Bob", "Jones"],
+          [3, "Carol", "Brown"],
+          [4, "Dan", "Adams"]
+        ],
+        "orders": [
+          [1, 1, 100.0],
+          [2, 1, 50.0],
+          [3, 3, 75.0]
+        ]
+      },
+      "correct_answer": "SELECT c.first_name, c.last_name FROM customers c LEFT JOIN orders o ON c.id = o.customer_id WHERE o.id IS NULL;",
+      "hints": [
+        "A LEFT JOIN keeps all customers, even those with no matching orders.",
+        "Customers with no orders will have NULL in the orders columns.",
+        "Filter with WHERE o.id IS NULL to keep only the unmatched customers."
+      ]
+    },
+    {
+      "id": 10,
+      "level": "Intermediate",
+      "topic": "GROUP BY / HAVING",
+      "title": "Customers With More Than 2 Orders",
+      "description": "Return the customer_id and order count (as order_count) for customers who placed more than 2 orders.",
+      "schema": "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL);",
+      "sample_data": {
+        "orders": [
+          [1, 1, 100.0],
+          [2, 1, 50.0],
+          [3, 1, 25.0],
+          [4, 2, 200.0],
+          [5, 3, 75.0],
+          [6, 3, 80.0],
+          [7, 3, 90.0],
+          [8, 3, 10.0]
+        ]
+      },
+      "correct_answer": "SELECT customer_id, COUNT(*) AS order_count FROM orders GROUP BY customer_id HAVING COUNT(*) > 2;",
+      "hints": [
+        "GROUP BY customer_id groups each customer's orders together.",
+        "HAVING filters groups after aggregation (WHERE can't use COUNT).",
+        "Use HAVING COUNT(*) > 2 to keep customers with more than two orders."
+      ]
+    },
+    {
+      "id": 11,
+      "level": "Intermediate",
+      "topic": "Aggregate + JOIN",
+      "title": "Total Spent Per Customer",
+      "description": "Return first_name and total_spent (sum of order amounts) for each customer who has at least one order. Order by total_spent descending.",
+      "schema": "CREATE TABLE customers (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT);\nCREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL);",
+      "sample_data": {
+        "customers": [
+          [1, "Alice", "Smith"],
+          [2, "Bob", "Jones"],
+          [3, "Carol", "Brown"]
+        ],
+        "orders": [
+          [1, 1, 100.0],
+          [2, 1, 50.0],
+          [3, 2, 200.0],
+          [4, 3, 75.0],
+          [5, 3, 25.0]
+        ]
+      },
+      "correct_answer": "SELECT c.first_name, SUM(o.amount) AS total_spent FROM customers c JOIN orders o ON c.id = o.customer_id GROUP BY c.id ORDER BY total_spent DESC;",
+      "hints": [
+        "Join customers to orders, then GROUP BY the customer.",
+        "SUM(o.amount) totals each customer's order amounts.",
+        "An INNER JOIN naturally excludes customers with no orders."
+      ]
+    },
+    {
+      "id": 12,
+      "level": "Intermediate",
+      "topic": "Subquery",
+      "title": "Above-Average Orders",
+      "description": "Return the id and amount of orders whose amount is greater than the average order amount.",
+      "schema": "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL);",
+      "sample_data": {
+        "orders": [
+          [1, 1, 100.0],
+          [2, 1, 50.0],
+          [3, 2, 200.0],
+          [4, 3, 75.0],
+          [5, 3, 25.0]
+        ]
+      },
+      "correct_answer": "SELECT id, amount FROM orders WHERE amount > (SELECT AVG(amount) FROM orders);",
+      "hints": [
+        "First compute the average: SELECT AVG(amount) FROM orders.",
+        "Use that as a subquery inside a WHERE clause.",
+        "WHERE amount > (subquery) keeps only above-average orders."
+      ]
+    },
+    {
+      "id": 13,
+      "level": "Intermediate",
+      "topic": "CASE",
+      "title": "Label Order Sizes",
+      "description": "Return each order's id, amount, and a column 'size' that is 'large' when amount >= 100, otherwise 'small'.",
+      "schema": "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL);",
+      "sample_data": {
+        "orders": [
+          [1, 1, 100.0],
+          [2, 1, 50.0],
+          [3, 2, 200.0],
+          [4, 3, 75.0]
+        ]
+      },
+      "correct_answer": "SELECT id, amount, CASE WHEN amount >= 100 THEN 'large' ELSE 'small' END AS size FROM orders;",
+      "hints": [
+        "CASE WHEN ... THEN ... ELSE ... END creates conditional values.",
+        "The condition is amount >= 100.",
+        "Alias the whole CASE expression AS size."
+      ]
+    },
+    {
+      "id": 14,
+      "level": "Intermediate",
+      "topic": "Date functions",
+      "title": "Orders in January 2024",
+      "description": "Return the id and order_date of all orders placed in January 2024.",
+      "schema": "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL, order_date TEXT);",
+      "sample_data": {
+        "orders": [
+          [1, 1, 100.0, "2024-01-05"],
+          [2, 1, 50.0, "2024-02-08"],
+          [3, 2, 200.0, "2024-01-20"],
+          [4, 3, 75.0, "2024-03-15"]
+        ]
+      },
+      "correct_answer": "SELECT id, order_date FROM orders WHERE strftime('%Y-%m', order_date) = '2024-01';",
+      "hints": [
+        "SQLite stores these dates as text in YYYY-MM-DD format.",
+        "strftime('%Y-%m', order_date) extracts the year-month.",
+        "Compare that to '2024-01' to isolate January 2024."
+      ]
+    },
+    {
+      "id": 15,
+      "level": "Advanced",
+      "topic": "Window / ROW_NUMBER",
+      "title": "Most Recent Order Per Customer",
+      "description": "For each customer, return the single most recent order (customer_id, id, order_date). Use a window function.",
+      "schema": "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL, order_date TEXT);",
+      "sample_data": {
+        "orders": [
+          [1, 1, 100.0, "2024-01-05"],
+          [2, 1, 50.0, "2024-03-08"],
+          [3, 2, 200.0, "2024-02-01"],
+          [4, 2, 75.0, "2024-04-15"],
+          [5, 3, 25.0, "2024-01-20"]
+        ]
+      },
+      "correct_answer": "SELECT customer_id, id, order_date FROM (SELECT customer_id, id, order_date, ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date DESC) AS rn FROM orders) WHERE rn = 1;",
+      "hints": [
+        "ROW_NUMBER() OVER (PARTITION BY customer_id ORDER BY order_date DESC) ranks each customer's orders.",
+        "The most recent order gets rn = 1 within each customer partition.",
+        "Wrap it in a subquery and filter WHERE rn = 1."
+      ]
+    },
+    {
+      "id": 16,
+      "level": "Advanced",
+      "topic": "Window / RANK",
+      "title": "Rank Orders by Amount",
+      "description": "Return id, amount, and a column 'amount_rank' ranking all orders by amount descending (highest = rank 1). Use RANK().",
+      "schema": "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL);",
+      "sample_data": {
+        "orders": [
+          [1, 1, 100.0],
+          [2, 1, 200.0],
+          [3, 2, 200.0],
+          [4, 3, 75.0]
+        ]
+      },
+      "correct_answer": "SELECT id, amount, RANK() OVER (ORDER BY amount DESC) AS amount_rank FROM orders;",
+      "hints": [
+        "RANK() OVER (ORDER BY amount DESC) assigns ranks across all rows.",
+        "Equal amounts receive the same rank (that's how RANK differs from ROW_NUMBER).",
+        "Alias the window expression AS amount_rank."
+      ]
+    },
+    {
+      "id": 17,
+      "level": "Advanced",
+      "topic": "CTE",
+      "title": "Customers Above Average Spend (CTE)",
+      "description": "Using a CTE, return first_name and total_spent for customers whose total spend exceeds the average total spend across all customers.",
+      "schema": "CREATE TABLE customers (id INTEGER PRIMARY KEY, first_name TEXT);\nCREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL);",
+      "sample_data": {
+        "customers": [
+          [1, "Alice"],
+          [2, "Bob"],
+          [3, "Carol"]
+        ],
+        "orders": [
+          [1, 1, 100.0],
+          [2, 1, 50.0],
+          [3, 2, 500.0],
+          [4, 3, 30.0]
+        ]
+      },
+      "correct_answer": "WITH spend AS (SELECT c.id, c.first_name, SUM(o.amount) AS total_spent FROM customers c JOIN orders o ON c.id = o.customer_id GROUP BY c.id) SELECT first_name, total_spent FROM spend WHERE total_spent > (SELECT AVG(total_spent) FROM spend);",
+      "hints": [
+        "Define a CTE with WITH spend AS (...) that totals each customer's spend.",
+        "Then query the CTE and compare each total to the average of the CTE.",
+        "You can reference the CTE more than once, including inside a subquery."
+      ]
+    },
+    {
+      "id": 18,
+      "level": "Advanced",
+      "topic": "Window / running total",
+      "title": "Running Total of Orders",
+      "description": "Return id, amount, and a running_total column that accumulates amount ordered by id ascending. Use a window function.",
+      "schema": "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL);",
+      "sample_data": {
+        "orders": [
+          [1, 1, 100.0],
+          [2, 1, 50.0],
+          [3, 2, 200.0],
+          [4, 3, 75.0]
+        ]
+      },
+      "correct_answer": "SELECT id, amount, SUM(amount) OVER (ORDER BY id) AS running_total FROM orders;",
+      "hints": [
+        "SUM(amount) OVER (ORDER BY id) creates a cumulative sum.",
+        "The ORDER BY inside OVER defines the accumulation order.",
+        "No GROUP BY needed — the window keeps every row."
+      ]
+    },
+    {
+      "id": 19,
+      "level": "Advanced",
+      "topic": "Self join",
+      "title": "Employees and Their Managers",
+      "description": "Return each employee's name and their manager's name (as employee_name, manager_name). Employees with no manager should be excluded.",
+      "schema": "CREATE TABLE employees (id INTEGER PRIMARY KEY, name TEXT, manager_id INTEGER);",
+      "sample_data": {
+        "employees": [
+          [1, "Alice", null],
+          [2, "Bob", 1],
+          [3, "Carol", 1],
+          [4, "Dan", 2]
+        ]
+      },
+      "correct_answer": "SELECT e.name AS employee_name, m.name AS manager_name FROM employees e JOIN employees m ON e.manager_id = m.id;",
+      "hints": [
+        "Join the employees table to itself using two aliases (e and m).",
+        "Link e.manager_id to m.id to find each employee's manager.",
+        "An INNER JOIN automatically drops employees whose manager_id is NULL."
+      ]
+    },
+    {
+      "id": 20,
+      "level": "Advanced",
+      "topic": "Window / LAG",
+      "title": "Order Amount Change",
+      "description": "For orders ordered by id, return id, amount, and prev_amount (the amount of the previous order, NULL for the first). Use LAG().",
+      "schema": "CREATE TABLE orders (id INTEGER PRIMARY KEY, customer_id INTEGER, amount REAL);",
+      "sample_data": {
+        "orders": [
+          [1, 1, 100.0],
+          [2, 1, 50.0],
+          [3, 2, 200.0],
+          [4, 3, 75.0]
+        ]
+      },
+      "correct_answer": "SELECT id, amount, LAG(amount) OVER (ORDER BY id) AS prev_amount FROM orders;",
+      "hints": [
+        "LAG(amount) OVER (ORDER BY id) fetches the previous row's amount.",
+        "The first row has no previous row, so it returns NULL.",
+        "Alias the result AS prev_amount."
+      ]
+    }
+  ]
+}
