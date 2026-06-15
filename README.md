@@ -121,7 +121,56 @@ import re
 import pandas as pd
 → Used for displaying query results in table format
 
+---
 
+## Architecture Overview 
+
+The system follows a modular architecture:
+
+🖥️ Frontend Layer
+
+Built using Streamlit
+
+Handles UI, input, and display
+
+
+⚙️ Backend Layer
+
+Python engine processes SQL queries
+
+SQLite database stores sample data
+
+
+📊 Evaluation Layer
+
+Compares student output vs expected output
+
+
+🧠 AI Layer
+
+Generates:
+
+Hints
+
+Feedback
+
+Similar questions
+
+
+
+💾 Session Layer
+
+Uses Streamlit session state for:
+
+progress tracking
+
+hints
+
+streaks
+
+current challenge
+
+---
 
 
 ## ⚙️ How It Works
