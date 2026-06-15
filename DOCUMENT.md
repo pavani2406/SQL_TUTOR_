@@ -1,4 +1,4 @@
-SQL-TUTOR: An AI-Powered Interactive SQL Learning Platform
+# SQL-TUTOR: An AI-Powered Interactive SQL Learning Platform
 INTRODUCTION
 SQL-TUTOR is an interactive, AI-driven educational platform designed to bridge the gap between theoretical SQL knowledge and practical application. The system addresses the limitations of traditional learning methods, such as static worksheets and the lack of immediate feedback, by providing a real-time, guided environment for practicing SQL queries.
 By integrating Large Language Models (LLMs) with a robust execution engine, SQL-TUTOR offers personalized hints and feedback, particularly for complex concepts such as Joins, Window Functions, and Common Table Expressions (CTEs). The platform follows an "Evaluation Loop" pedagogy, where students are guided toward the correct answer through incremental hints rather than direct solutions, fostering deeper conceptual understanding.
