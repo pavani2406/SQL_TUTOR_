@@ -1,11 +1,14 @@
 # SQL-TUTOR: An AI-Powered Interactive SQL Learning Platform
-INTRODUCTION
-SQL-TUTOR is an interactive, AI-driven educational platform designed to bridge the gap between theoretical SQL knowledge and practical application. The system addresses the limitations of traditional learning methods, such as static worksheets and the lack of immediate feedback, by providing a real-time, guided environment for practicing SQL queries.
+# INTRODUCTION
+SQL-TUTOR is an interactive, AI-driven educational platform designed to bridge the gap between theoretical SQL knowledge and practical application. 
+The system addresses the limitations of traditional learning methods, such as static worksheets and the lack of immediate feedback, by providing a real-time, guided environment for practicing SQL queries.
+
 By integrating Large Language Models (LLMs) with a robust execution engine, SQL-TUTOR offers personalized hints and feedback, particularly for complex concepts such as Joins, Window Functions, and Common Table Expressions (CTEs). The platform follows an "Evaluation Loop" pedagogy, where students are guided toward the correct answer through incremental hints rather than direct solutions, fostering deeper conceptual understanding.
 ________________________________________
-Problem Statement and Objectives
-Traditional SQL education often relies on static documentation and non-interactive worksheets. This approach presents several challenges for students, particularly beginners and junior developers:
-Challenges
+# Problem Statement and Objectives
+Traditional SQL education often relies on static documentation and non-interactive worksheets. This approach presents several challenges for students, particularly beginners and junior developers;
+
+# Challenges
 •	Lack of Immediate Feedback
 o	Students struggle to identify why a query is failing or producing incorrect results without real-time guidance.
 •	Difficulty with Complex Syntax
@@ -19,9 +22,9 @@ SQL-TUTOR aims to address these challenges by acting as a virtual SQL mentor tha
 •	Rewards achievement through gamification.
 •	Encourages conceptual understanding rather than memorization.
 ________________________________________
-Core Features and Functionality
+# Core Features and Functionality
 The platform is built around a multi-tier challenge system categorized into Beginner, Intermediate, and Advanced levels.
-Key Features
+# Key Features
 1. Challenge System
 •	Curated library of SQL problems stored in JSON format.
 •	Categorized by difficulty level.
@@ -41,7 +44,7 @@ Key Features
 •	Awards badges and achievements.
 •	Records completed challenges.
 ________________________________________
-Technical Architecture
+# Technical Architecture
 SQL-TUTOR follows a modular architecture to ensure smooth interaction between the user interface, execution engine, and AI services.
 System Layers
 1. Frontend Layer
@@ -75,7 +78,7 @@ Responsibilities:
 •	Streak Management
 •	Challenge History
 ________________________________________
-Tools and Technologies
+# Tools and Technologies
 Category	Technology
 Programming Language	Python 3.10+
 Web Framework	Streamlit
@@ -83,7 +86,7 @@ Database	SQLite
 Data Handling	Pandas, JSON
 AI Integration	OpenAI API / Gemini API
 ________________________________________
-Essential Python Libraries
+# Essential Python Libraries
 sqlite3
 Core database engine used for SQL query execution.
 pandas
@@ -97,7 +100,7 @@ Tracks solving speed, timestamps, and learning streaks.
 pathlib
 Manages project file structures and paths.
 ________________________________________
-AI Implementation and Educational Pedagogy
+# AI Implementation and Educational Pedagogy
 The defining characteristic of SQL-TUTOR is its intelligent tutoring approach.
 1. Adaptive Hinting
 •	Monitors the number of user attempts.
@@ -115,7 +118,7 @@ Example:
 •	CTEs
 This reinforces understanding and improves retention.
 ________________________________________
-Operational Workflow
+# Operational Workflow
 The application follows a structured learning journey:
 Step 1: Challenge Selection
 Users choose a difficulty level:
@@ -146,7 +149,7 @@ On Failure
 Step 6: Progress Reinforcement
 Users can generate similar challenges to strengthen mastery of concepts.
 ________________________________________
-Deployment and Setup
+# Deployment and Setup
 The project is designed to run within an isolated Python environment.
 Installation Steps
 1. Navigate to Project Directory
@@ -163,5 +166,5 @@ pip install -r requirements.txt
 5. Launch Application
 streamlit run app.py
 ________________________________________
-Conclusion
+# Conclusion
 SQL-TUTOR transforms SQL learning from a passive activity into an interactive and engaging experience. By combining real-time query execution, automated evaluation, AI-generated feedback, adaptive hints, and gamification, the platform enables learners to develop practical SQL skills efficiently. Its intelligent tutoring capabilities make it particularly valuable for beginners seeking guided practice and deeper conceptual understanding of database technologies.
