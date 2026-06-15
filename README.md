@@ -1,7 +1,7 @@
 # 🎓 SQL Tutor Agent
 **SQL-10 | AI Implementation Protocol — Student Project**
 
-DEMO : https://drive.google.com/file/d/1hd26a5eI6JlM4oi4XOvU8X2TV7tXD-Of/view?usp=drive_link
+Demo video link : https://drive.google.com/file/d/1hd26a5eI6JlM4oi4XOvU8X2TV7tXD-Of/view?usp=drive_link
 
 An interactive web app that poses SQL challenges, runs your answer against an isolated
 in-memory database, compares it to the expected output, and gives **targeted, answer-safe
