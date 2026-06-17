@@ -13,7 +13,7 @@ feedback** — a hint and an explanation that guide you without handing over the
 
 | S.No | Name | Role | Email |
 |------|------|------|--------|
-| 1 | Y. Gnana Pavani | Team Lead, Frontend Developer & Backend Developer | yg.pavani2004@gmail.com |
+| 1 | Y. Gnana Pavani | Frontend Developer & Backend Developer | yg.pavani2004@gmail.com |
 | 2 | D. Sri Lakshmi | Backend Developer & Database Manager | sreelaxmi7017@gmail.com |
 | 3 | Shaik Aisha Afreen | AI Integration, Testing & Documentation | shaikaishaafreen@gmail.com |
 
@@ -44,9 +44,27 @@ pip install -r requirements.txt
 pip install streamlit
 pip install pandas
 pip install google-generativeai
+
+```
+### 2. Install Ollama
+
+Download Ollama from:
+
+https://ollama.com
+
+Pull the model:
+
+```bash
+ollama pull qwen2.5-coder:3b
 ```
 
-### 2. Run
+Start Ollama:
+
+```bash
+ollama serve
+```
+
+### 3. Run
 ```bash
 streamlit run app.py
 ```
@@ -71,22 +89,17 @@ streamlit run app.py
 
 ---
 
-## Tools & Technologies 
+## 🛠️ Tools & Technologies
 
 We used the following tools:
 
-Python 3.10+
-
-Streamlit (for web UI)
-
-SQLite (database engine)
-
-Pandas (data handling)
-
-JSON (challenge storage)
-
-OpenAI / Gemini API (for AI feedback system)
-
+- Python 3.10+
+- Streamlit (Web UI)
+- SQLite (Database Engine)
+- Pandas (Data Processing)
+- JSON (Challenge Storage)
+- Ollama (Local LLM Runtime)
+- Qwen2.5-Coder 3B (AI Model for Feedback, Hints & Challenge Generation)
 
 ## Libraries Used
 
@@ -252,18 +265,21 @@ Progress lives in Streamlit session state (resets when the app restarts).
 
 
 ## ⚙️ Assumptions
-Users possess basic SQL knowledge.
-Sample databases are preconfigured.
-Expected outputs exist for every challenge.
-Internet connectivity is available for AI feedback.
-Submitted queries are intended for learning purposes.
+
+- Users possess basic SQL knowledge.
+- Sample databases are preconfigured.
+- Expected outputs exist for every challenge.
+- Ollama is installed and running locally.
+- Qwen2.5-Coder model is available locally.
+- Submitted queries are intended for learning purposes.
 
 ## ⚠️ Limitations
-Feedback quality depends on the AI model.
-Extremely complex queries may receive generic hints.
-Supports predefined SQL practice datasets only.
-Requires API access for AI-generated feedback.
-Not intended for production database environments.
+
+- Feedback quality depends on the LLM response.
+- Extremely complex queries may receive generic hints.
+- Supports predefined SQL practice datasets only.
+- Requires Ollama and Qwen2.5-Coder to be installed locally.
+- Not intended for production database environments.
 
 ## 🔒 Safety
 
