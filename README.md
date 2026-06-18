@@ -7,7 +7,7 @@ in-memory database, compares it to the expected output, and gives **targeted, an
 feedback** — a hint and an explanation that guide you without handing over the solution.
 
 ---
-# Team mmebers:
+# Team members:
 
 ## 👥 Team Members
 
