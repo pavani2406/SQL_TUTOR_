@@ -289,6 +289,6 @@ A guard rejects anything that isn't a `SELECT`/`WITH` and blocks
 
 ---
 
-## Conclusio
+## Conclusion
 The SQL Tutor project is designed to help beginners strengthen their understanding of SQL through hands-on practice. By providing interactive challenges, real-time query evaluation, and instant feedback
 
